@@ -89,7 +89,7 @@ while (run) {
     cin.clear();
     cin.ignore(1000000, '\n');
 
-    if(strcmp(choice, "County") == 0 || strcmp(choice, "county")) {
+    if(strcmp(choice1, "County") == 0 || strcmp(choice1, "county") == 0) {
       int n;
       cout << "Enter the population of this county: ";
       cin >> n;
@@ -100,6 +100,11 @@ while (run) {
       countyList->push_back(NC);
       cout << "County Entered!" << endl;
       }
+    else {
+      cout << "Invalid input" << endl;
+      cout << "Input county or State" << endl;
+      cout << '\n';
+      }
     }
 
   else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
@@ -107,15 +112,17 @@ while (run) {
         cout << "NAME: " << (*iter)->name << endl;
         cout << "POPULATION : " << (*iter)->population << endl;
         cout << "# of CITIES: " << (*iter)->cities << endl;
-        cout << ""
+        //cout << "";
       }
     }
-  else if (strcmp(choice, "Get") || strcmp(choice, "get")) {
+  else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
       //prob stream everything using this loop into the txt
-      cout << "Get works" << endl; 
       }
+      cout << "Get works" << endl; 
+    }
+  else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
+    cout << "Delete works" << endl;
     }
   }
 }
-
