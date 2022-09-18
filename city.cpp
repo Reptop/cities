@@ -13,9 +13,10 @@
 #include <vector>
 #include <fstream>
 #include "fact.h"
-using namespace std; 
+using namespace std;
 
 county * create_counties(int n) {
+    char input[20]; 
     county * newCounty = new county();
     cout << "Enter name of county: ";
     cin >> newCounty->name;
@@ -33,24 +34,19 @@ county * create_counties(int n) {
     cin >> newCounty->avg_income;
     cin.clear();
     cin.ignore(1000000, '\n');
-    return newCounty;
 
     cout << "Enter average household price: " << endl;
-    cin >> newCounty->avg_income;
-    cin.clear();
-    cin.ignore(1000000, '\n');
-    return newCounty;
-
-    cout << "Enter average household income: " << endl;
     cin >> newCounty->avg_house;
     cin.clear();
     cin.ignore(1000000, '\n');
+
     return newCounty;
 }
 
 state * create_states(int) {
   //create state here
- 
+  state* x = new state();
+  return x;
 }
 
 void get_state_data(state *, int, ifstream &) {
@@ -105,17 +101,19 @@ while (run) {
       cout << "County Entered!" << endl;
       }
     }
-  
-    else if (strcmp(choice, "Get") || strcmp(choice, "get")) {
-      for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
-        //prob stream everything using this loop into the txt 
-      }
-    }
-    else if (strcmp(choice, "Print") || strcmp(choice, "print")) {
-      for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
+
+  else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
+    for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
         cout << "NAME: " << (*iter)->name << endl;
         cout << "POPULATION : " << (*iter)->population << endl;
-        cout << "# of CITIES: " << (*iter)->cities << endl; 
+        cout << "# of CITIES: " << (*iter)->cities << endl;
+        cout << ""
+      }
+    }
+  else if (strcmp(choice, "Get") || strcmp(choice, "get")) {
+    for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
+      //prob stream everything using this loop into the txt
+      cout << "Get works" << endl; 
       }
     }
   }
