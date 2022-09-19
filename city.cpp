@@ -28,7 +28,7 @@ county * create_counties(int n) {
     cout << "Enter number of cities in county: " << endl;
     cin >> newCounty->cities;
     cin.clear();
-    cin.ignore(1000000, '\n'); 
+    cin.ignore(1000000, '\n');
 
     cout << "Enter average household income: " << endl;
     cin >> newCounty->avg_income;
@@ -62,7 +62,6 @@ bool is_valid_arguments(char *[], int) {
 void get_county_data(county *, int, ifstream &) {
 
 }
-
 
 int main() {
 
@@ -119,7 +118,7 @@ while (run) {
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
       //prob stream everything using this loop into the txt
       }
-      cout << "Get works" << endl; 
+      cout << "Get works" << endl;
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     cout << "Delete works" << endl;
