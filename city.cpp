@@ -73,7 +73,7 @@ char choice1[20];
 vector <county*> * countyList = new vector<county*>();
 
 cout << "This program compares city and county information" << endl;
-cout << "Command List: Add, Delete, Print" << endl;
+cout << "Command List: Add, Delete, Print, Quit" << endl;
 
 while (run) {
   cout << "Enter Command: ";
@@ -111,7 +111,8 @@ while (run) {
         cout << "NAME: " << (*iter)->name << endl;
         cout << "POPULATION : " << (*iter)->population << endl;
         cout << "# of CITIES: " << (*iter)->cities << endl;
-        //cout << "";
+        cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+        cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
       }
     }
   else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
@@ -122,6 +123,9 @@ while (run) {
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     cout << "Delete works" << endl;
+    }
+  else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
+    break; //break out
     }
   }
 }
