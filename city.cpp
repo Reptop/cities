@@ -113,13 +113,20 @@ while (run) {
         cout << "# of CITIES: " << (*iter)->cities << endl;
         cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
         cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+        cout << '\n'; 
       }
     }
   else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
+    ofstream outFile("my_file.txt");
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
       //prob stream everything using this loop into the txt
+        outFile << "NAME: " << (*iter)->name << endl;
+        outFile << "POPULATION : " << (*iter)->population << endl;
+        outFile << "# of CITIES: " << (*iter)->cities << endl;
+        outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+        outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+       //<< '\n'; 
       }
-      cout << "Get works" << endl;
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     cout << "Delete works" << endl;
