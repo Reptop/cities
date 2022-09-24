@@ -127,9 +127,10 @@ while (run) {
         outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
        //<< '\n'; 
       }
+    cout << "Text file created" << endl;
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
-    cout << "Delete works" << endl;
+    cout << "Delete by county or state name?" << endl; 
     }
   else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
     break; //break out
