@@ -4,7 +4,7 @@ using namespace std;
 
 struct county {
 string name; //name of county
-string *city; // array of city names in county
+struct cityList *city; // array of city names in county
 int cities; //number of cities in county
 int population; //total population of county
 float avg_income; //avg household income

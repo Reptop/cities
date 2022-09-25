@@ -16,7 +16,6 @@
 using namespace std;
 
 county * create_counties(int n) {
-    char input[20]; 
     county * newCounty = new county();
     cout << "Enter name of county: ";
     cin >> newCounty->name;
@@ -43,10 +42,23 @@ county * create_counties(int n) {
     return newCounty;
 }
 
-state * create_states(int) {
+state * create_states(int n) {
   //create state here
-  state* x = new state();
-  return x;
+
+    state * newState = new state();
+    cout << "Enter name of state: ";
+    cin >> newState->name;
+    cin.clear();
+    cin.ignore(1000000, '\n');
+
+    newState->population = n;
+
+    cout << "Enter number of counties: " << endl;
+    cin >> newState->counties;
+    cin.clear();
+    cin.ignore(1000000, '\n');
+
+    return newState;
 }
 
 void get_state_data(state *, int, ifstream &) {
@@ -88,15 +100,18 @@ for (;;) {
 
     if(strcmp(choice1, "County") == 0 || strcmp(choice1, "county") == 0) {
       int n;
-      cout << "Enter the population of this county: ";
+      cout << "Enter the population of this state: ";
       cin >> n;
       cin.clear();
       cin.ignore(1000000, '\n');
       //if(is_valid_arguments(char **, ))
-      county* NC = create_counties(n);
-      countyList->push_back(NC);
-      cout << "County Entered!" << endl;
+      state* SC = create_states(n);
+      stateList->push_back(NC);
+      cout << "State Entered!" << endl;
     }
+  else if(strcmp(choice, "State") == 0 || strcmp(choice, "state") == 0
+
+  }
     else {
       cout << "Invalid input" << endl;
       cout << "Input county or State" << endl;
@@ -138,11 +153,11 @@ for (;;) {
     cin.ignore(1000000, '\n');
 
     if(strcmp(n, "County") == 0 || strcmp(n, "county") == 0) {
-      if (countyList->empty() == true) {
+      if (countyList->empty()) {
         cout << "There are no counties to delete" << endl;
       }
       else {
-
+        cout << "There are counties to delete, just testing this stuff" << endl;
       }
     }
   else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
