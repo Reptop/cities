@@ -81,6 +81,7 @@ char choice1[20];
 
 //storing vector on heap or else segmentation fault. Dont want to use any global vars
 vector <county*> * countyList = new vector<county*>();
+vector <state*> * stateList = new vector<state*>();
 
 cout << "This program compares city and county information" << endl;
 cout << "Command List: Add, Delete, Print, Quit" << endl;
@@ -100,26 +101,28 @@ for (;;) {
 
     if(strcmp(choice1, "County") == 0 || strcmp(choice1, "county") == 0) {
       int n;
-      cout << "Enter the population of this state: ";
+      cout << "Enter the population of this county: ";
       cin >> n;
       cin.clear();
       cin.ignore(1000000, '\n');
       //if(is_valid_arguments(char **, ))
-      state* SC = create_states(n);
-      stateList->push_back(NC);
+      county* NC = create_counties(n);
+      countyList->push_back(NC);
+      cout << "County Entered!" << endl;
+    }
+    else if(strcmp(choice, "State") == 0 || strcmp(choice, "state") == 0)
+      cout << "Enter the population of this state: ";
+      int c;
+      cin >> c;
+      cin.clear();
+      cin.ignore(1000000, '\n');
+      //if(is_valid_arguments(char **, ))
+      state* NS = create_states(c);
+      stateList->push_back(NS);
       cout << "State Entered!" << endl;
-    }
-  else if(strcmp(choice, "State") == 0 || strcmp(choice, "state") == 0
+}
 
-  }
-    else {
-      cout << "Invalid input" << endl;
-      cout << "Input county or State" << endl;
-      cout << '\n';
-      }
-    }
-
-  else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
+else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
         cout << "NAME: " << (*iter)->name << endl;
         cout << "POPULATION : " << (*iter)->population << endl;
@@ -129,40 +132,46 @@ for (;;) {
         cout << '\n'; 
       }
     }
-  else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
-    //ofstream outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
-    ofstream outFile;
-    //ofstream outFile("my_file.txt");
-    outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
-    for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
-      //prob stream everything using this loop into the txt
-        outFile << "NAME: " << (*iter)->name << endl;
-        outFile << "POPULATION : " << (*iter)->population << endl;
-        outFile << "# of CITIES: " << (*iter)->cities << endl;
-        outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
-        outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-        outFile << '\n';
-      }
-    cout << "Text file created" << endl;
+else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
+  //ofstream outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
+  ofstream outFile;
+  //ofstream outFile("my_file.txt");
+  outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
+  for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
+    //prob stream everything using this loop into the txt
+      outFile << "NAME: " << (*iter)->name << endl;
+      outFile << "POPULATION : " << (*iter)->population << endl;
+      outFile << "# of CITIES: " << (*iter)->cities << endl;
+      outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+      outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+      outFile << '\n';
     }
-  else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
-    char n[15];
-    cout << "Delete by county or state name?" << endl; cout << "<< "; 
-    cin >> n;
-    cin.clear();
-    cin.ignore(1000000, '\n');
+  cout << "Text file created" << endl;
+}
+else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
+  char n[15];
+  cout << "Delete by county or state name?" << endl; cout << "<< "; 
+  cin >> n;
+  cin.clear();
+  cin.ignore(1000000, '\n');
 
-    if(strcmp(n, "County") == 0 || strcmp(n, "county") == 0) {
-      if (countyList->empty()) {
-        cout << "There are no counties to delete" << endl;
-      }
-      else {
-        cout << "There are counties to delete, just testing this stuff" << endl;
-      }
+  if(strcmp(n, "County") == 0 || strcmp(n, "county") == 0) {
+    if (countyList->empty()) {
+      cout << "There are no counties to delete" << endl;
     }
-  else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
-    break; //break out
-      }
+  else {
+      cout << "There are counties to delete, just testing this stuff" << endl;
     }
   }
 }
+  else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
+    break;
+  }
+  else {
+    cout << "Invalid input" << endl;
+    cout << "Input county or State" << endl;
+    cout << '\n';
+    }
+  }
+}
+
