@@ -81,7 +81,7 @@ for (;;) {
 
   if (strcmp(choice, "Add") == 0 || strcmp(choice, "add") == 0) {
     cout << '\n';
-    cout << "Add County or State?" << endl;
+    cout << "Add County or State?" << endl; cout << "<< ";
     cin >> choice1;
     cin.clear();
     cin.ignore(1000000, '\n');
@@ -96,7 +96,7 @@ for (;;) {
       county* NC = create_counties(n);
       countyList->push_back(NC);
       cout << "County Entered!" << endl;
-      }
+    }
     else {
       cout << "Invalid input" << endl;
       cout << "Input county or State" << endl;
@@ -115,7 +115,10 @@ for (;;) {
       }
     }
   else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
-    ofstream outFile("my_file.txt");
+    //ofstream outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
+    ofstream outFile;
+    //ofstream outFile("my_file.txt");
+    outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
       //prob stream everything using this loop into the txt
         outFile << "NAME: " << (*iter)->name << endl;
@@ -123,20 +126,28 @@ for (;;) {
         outFile << "# of CITIES: " << (*iter)->cities << endl;
         outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
         outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-       //<< '\n';
+        outFile << '\n';
       }
     cout << "Text file created" << endl;
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     char n[15];
-    cout << "Delete by county or state name?" << endl;
+    cout << "Delete by county or state name?" << endl; cout << "<< "; 
     cin >> n;
+    cin.clear();
+    cin.ignore(1000000, '\n');
+
     if(strcmp(n, "County") == 0 || strcmp(n, "county") == 0) {
+      if (countyList->empty() == true) {
+        cout << "There are no counties to delete" << endl;
+      }
+      else {
 
       }
     }
   else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
     break; //break out
+      }
     }
   }
 }
