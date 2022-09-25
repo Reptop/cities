@@ -124,14 +124,14 @@ for (;;) {
 
 else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
     for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
-        cout << "NAME: " << (*iter)->name << endl;
-        cout << "POPULATION : " << (*iter)->population << endl;
-        cout << "# of CITIES: " << (*iter)->cities << endl;
-        cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
-        cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-        cout << '\n'; 
-      }
+      cout << "NAME: " << (*iter)->name << endl;
+      cout << "POPULATION : " << (*iter)->population << endl;
+      cout << "# of CITIES: " << (*iter)->cities << endl;
+      cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+      cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+      cout << '\n'; 
     }
+  }
 else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
   //ofstream outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
   ofstream outFile;
@@ -139,13 +139,13 @@ else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
   outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
   for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
     //prob stream everything using this loop into the txt
-      outFile << "NAME: " << (*iter)->name << endl;
-      outFile << "POPULATION : " << (*iter)->population << endl;
-      outFile << "# of CITIES: " << (*iter)->cities << endl;
-      outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
-      outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-      outFile << '\n';
-    }
+    outFile << "NAME: " << (*iter)->name << endl;
+    outFile << "POPULATION : " << (*iter)->population << endl;
+    outFile << "# of CITIES: " << (*iter)->cities << endl;
+    outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+    outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+    outFile << '\n';
+  }
   cout << "Text file created" << endl;
 }
 else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
