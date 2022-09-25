@@ -64,8 +64,6 @@ void get_county_data(county *, int, ifstream &) {
 }
 
 int main() {
-
-bool run = true;
 char choice[20];
 char choice1[20];
 
@@ -75,7 +73,7 @@ vector <county*> * countyList = new vector<county*>();
 cout << "This program compares city and county information" << endl;
 cout << "Command List: Add, Delete, Print, Quit" << endl;
 
-while (run) {
+for (;;) {
   cout << "Enter Command: ";
   cin >> choice;
   cin.clear();
@@ -125,12 +123,17 @@ while (run) {
         outFile << "# of CITIES: " << (*iter)->cities << endl;
         outFile << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
         outFile << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-       //<< '\n'; 
+       //<< '\n';
       }
     cout << "Text file created" << endl;
     }
   else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
-    cout << "Delete by county or state name?" << endl; 
+    char n[15];
+    cout << "Delete by county or state name?" << endl;
+    cin >> n;
+    if(strcmp(n, "County") == 0 || strcmp(n, "county") == 0) {
+
+      }
     }
   else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
     break; //break out
