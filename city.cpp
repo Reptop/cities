@@ -110,7 +110,7 @@ for (;;) {
       countyList->push_back(NC);
       cout << "County Entered!" << endl;
     }
-    else if(strcmp(choice, "State") == 0 || strcmp(choice, "state") == 0)
+    else if(strcmp(choice, "State") == 0 || strcmp(choice, "state") == 0) {
       cout << "Enter the population of this state: ";
       int c;
       cin >> c;
@@ -120,18 +120,19 @@ for (;;) {
       state* NS = create_states(c);
       stateList->push_back(NS);
       cout << "State Entered!" << endl;
+    }
 }
 
 else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
-    for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
-      cout << "NAME: " << (*iter)->name << endl;
-      cout << "POPULATION : " << (*iter)->population << endl;
-      cout << "# of CITIES: " << (*iter)->cities << endl;
-      cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
-      cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
-      cout << '\n'; 
-    }
+  for (vector<county*>::iterator iter = countyList->begin(); iter != countyList->end(); ++iter) {
+    cout << "NAME: " << (*iter)->name << endl;
+    cout << "POPULATION : " << (*iter)->population << endl;
+    cout << "# of CITIES: " << (*iter)->cities << endl;
+    cout << "AVERAGE HOUSEHOLD INCOME: " << (*iter)->avg_income << endl;
+    cout << "AVERAGE HOUSEHOLD PRICE: " << (*iter)->avg_house << endl;
+    cout << '\n'; 
   }
+}
 else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
   //ofstream outFile.open("my_file.txt", std::ios_base::app); // append instead of overwrite
   ofstream outFile;
@@ -150,7 +151,7 @@ else if (strcmp(choice, "Get") == 0 || strcmp(choice, "get") == 0) {
 }
 else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
   char n[15];
-  cout << "Delete by county or state name?" << endl; cout << "<< "; 
+  cout << "Delete by county or state name?" << endl; cout << "<< ";  
   cin >> n;
   cin.clear();
   cin.ignore(1000000, '\n');
@@ -164,7 +165,7 @@ else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     }
   }
 }
-  else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0) {
+  else if (strcmp(choice, "Quit") == 0 || strcmp(choice, "quit") == 0 || strcmp(choice, "q") == 0) {
     break;
   }
   else {
