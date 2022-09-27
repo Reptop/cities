@@ -121,6 +121,9 @@ for (;;) {
       stateList->push_back(NS);
       cout << "State Entered!" << endl;
     }
+    else {
+      cout << "Input county or State" << endl;
+    }
 }
 
 else if (strcmp(choice, "Print") == 0 || strcmp(choice, "print") == 0) {
@@ -169,9 +172,7 @@ else if (strcmp(choice, "Delete") == 0 || strcmp(choice, "delete") == 0) {
     break;
   }
   else {
-    cout << "Invalid input" << endl;
-    cout << "Input county or State" << endl;
-    cout << '\n';
+    cout << "Invalid command" << endl;
     }
   }
 }
