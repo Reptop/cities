@@ -4,7 +4,9 @@ import random
 
 r = random.randint(1, 10)
 
+print("What color of airforces should huy wear today?")
+print("Lets find out!")
 if (r % 2) == 0:
-    print("Black")
+    print("Black!")
 else: 
-    print("White")
+    print("White!")
